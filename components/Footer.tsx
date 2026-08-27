@@ -1,5 +1,6 @@
 import { profile } from "@/lib/content";
 import BrandMark from "./BrandMark";
+import { InstaIcon } from "./icons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -28,6 +29,15 @@ export default function Footer() {
             className="transition-colors hover:text-accentSoft"
           >
             LinkedIn
+          </a>
+          <a
+            href={profile.socials.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-accentSoft"
+          >
+            <InstaIcon className="h-4 w-4" />
+            Instagram
           </a>
           <a href="/brand-bible" className="transition-colors hover:text-accentSoft">
             Brand Bible

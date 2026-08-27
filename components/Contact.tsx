@@ -1,9 +1,8 @@
 import Reveal from "./Reveal";
 import { contact, profile } from "@/lib/content";
-import { GithubIcon, LinkedinIcon } from "./icons";
+import { GithubIcon, LinkedinIcon, InstaIcon } from "./icons";
 
 export default function Contact() {
-  const hasEmail = Boolean((profile as any).email);
   return (
     <section id="contact" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
       <div className="container-content">
@@ -30,23 +29,18 @@ export default function Contact() {
                 <GithubIcon className="h-4 w-4" />
                 {contact.buttons.github}
               </a>
-              {hasEmail ? (
-                <a href={`mailto:${(profile as any).email}`} className="btn-secondary">
-                  {contact.buttons.email}
-                </a>
-              ) : (
-                <span className="chip">
-                  Email available on{" "}
-                  <a
-                    href={profile.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-accent"
-                  >
-                    LinkedIn
-                  </a>
-                </span>
-              )}
+              <a
+                href={profile.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                <InstaIcon className="h-4 w-4" />
+                {contact.buttons.instagram}
+              </a>
+              <a href={`mailto:${profile.email}`} className="btn-secondary">
+                {contact.buttons.email}
+              </a>
             </div>
           </div>
         </Reveal>

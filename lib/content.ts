@@ -8,9 +8,11 @@ export const profile = {
     "I’m a Laravel developer focused on building and improving real-world SaaS products, combining backend engineering, frontend development, UI/UX thinking and product understanding.",
   heroCtaPrimary: { label: "View My Work", href: "#work" },
   heroCtaSecondary: { label: "Let's Connect", href: "#contact" },
+  email: "bibekjaiswalpersonal045@gmail.com",
   socials: {
     github: "https://github.com/bibek-jaiswal045",
     linkedin: "https://www.linkedin.com/in/bibek-jaiswal-463289271",
+    instagram: "https://www.instagram.com/bibek_jaiswal45",
   },
 };
 
@@ -509,6 +511,7 @@ export const contact = {
   buttons: {
     linkedin: "LinkedIn",
     github: "GitHub",
+    instagram: "Instagram",
     email: "Email",
   },
 };
@@ -516,8 +519,8 @@ export const contact = {
 export const nav = {
   brand: "Bibek Jaiswal",
   links: [
-    { label: "Work", href: "#work" },
     { label: "About", href: "#about" },
+    { label: "Work", href: "#work" },
     { label: "Leadership", href: "#leadership" },
     { label: "Stack", href: "#stack" },
     { label: "Contact", href: "#contact" },

@@ -31,7 +31,7 @@ const COLOR_ROWS: { label: string; tokenKey: string }[] = [
 ];
 
 export default function BrandBiblePage() {
-  const { brand, finalized, exitFinalized } = useBrand();
+  const { brand } = useBrand();
   const [tokens, setTokens] = useState<Tokens>({});
   const b = brands[brand];
   const fonts = FONT_NAMES[brand];
@@ -70,25 +70,9 @@ export default function BrandBiblePage() {
             Bibek Jaiswal — Personal Brand Bible
           </h1>
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span className="chip text-[11px]">Active identity: {b.name}</span>
-            {finalized ? (
-              <button onClick={exitFinalized} className="btn-secondary text-xs">
-                Re-open Brand Lab
-              </button>
-            ) : (
-              <span className="chip text-[11px] border-line bg-transparent text-muted">
-                Preview mode — not finalized
-              </span>
-            )}
+            <span className="chip text-[11px]">Finalized identity: {b.name}</span>
           </div>
         </header>
-
-        {!finalized && (
-          <div className="mb-10 rounded-2xl border border-line bg-panel/50 p-5 text-sm text-muted">
-            This Brand Bible reflects the currently previewed direction (<span className="text-white">{b.name}</span>).
-            Finalize a direction from the Brand Lab to make it the permanent source of truth.
-          </div>
-        )}
 
         <div className="space-y-8">
           <Section n="01" title="Brand Identity">

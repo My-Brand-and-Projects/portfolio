@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 import BrandMark from "./BrandMark";
 import { useBrand } from "./BrandProvider";
 import { profile, brands } from "@/lib/content";
-import { GithubIcon, LinkedinIcon } from "./icons";
+import { GithubIcon, LinkedinIcon, InstaIcon, MailIcon } from "./icons";
 
 function HighlightedHeadline({
   text,
@@ -124,6 +124,22 @@ export default function Hero() {
                 className="text-muted transition-colors hover:text-accentSoft"
               >
                 <LinkedinIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={profile.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-muted transition-colors hover:text-accentSoft"
+              >
+                <InstaIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Email"
+                className="text-muted transition-colors hover:text-accentSoft"
+              >
+                <MailIcon className="h-5 w-5" />
               </a>
             </div>
           </Reveal>

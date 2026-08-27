@@ -11,7 +11,6 @@ import {
 import "./globals.css";
 import { seo, profile } from "@/lib/content";
 import { BrandProvider } from "@/components/BrandProvider";
-import BrandLab from "@/components/BrandLab";
 
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
@@ -70,7 +69,7 @@ const websiteStructuredData = {
   url: seo.canonical,
 };
 
-const brandBoot = `(function(){try{var order=["signal","vermilion","apricot"];var fin=sessionStorage.getItem("brand-direction");var cur=sessionStorage.getItem("brand-lab-current");var b=fin||cur||"apricot";if(order.indexOf(b)===-1)b="apricot";document.documentElement.dataset.brand=b;}catch(e){document.documentElement.dataset.brand="apricot";}})();`;
+const brandBoot = `(function(){try{document.documentElement.dataset.brand="apricot";}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -87,10 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <BrandProvider>
-          <BrandLab />
-          {children}
-        </BrandProvider>
+        <BrandProvider>{children}</BrandProvider>
       </body>
     </html>
   );
