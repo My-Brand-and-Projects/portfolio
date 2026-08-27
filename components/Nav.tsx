@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { nav, profile } from "@/lib/content";
+import BrandMark from "./BrandMark";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -23,9 +24,10 @@ export default function Nav() {
       <nav className="container-content flex h-16 items-center justify-between" aria-label="Primary">
         <a
           href="#top"
-          className="text-sm font-semibold tracking-tight text-white"
+          className="flex items-center gap-2 text-sm font-semibold tracking-tight text-white"
         >
-          {nav.brand}
+          <BrandMark size={22} className="text-accent" />
+          <span>{nav.brand}</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">

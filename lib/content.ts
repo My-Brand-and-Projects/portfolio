@@ -525,6 +525,89 @@ export const nav = {
   cta: { label: "Let's Connect", href: "#contact" },
 };
 
+export type BrandId = "signal" | "vermilion" | "apricot";
+
+export const brandOrder: BrandId[] = ["signal", "vermilion", "apricot"];
+
+export const brands: Record<
+  BrandId,
+  {
+    id: BrandId;
+    name: string;
+    label: string;
+    tagline: string;
+    personality: string[];
+    accentHex: string;
+    description: string;
+    featured: string;
+    hero: {
+      label: string;
+      highlight: string;
+      emphasizeStyle: "accent" | "serif";
+      visual: "diagram" | "editorial" | "journey";
+      steps: string[];
+      direction: "down" | "across";
+      emphasize?: string[];
+    };
+  }
+> = {
+  signal: {
+    id: "signal",
+    name: "SIGNAL",
+    label: "Signal",
+    tagline: "Technical precision with personality.",
+    personality: ["Intelligent", "Technical", "Distinctive", "Energetic", "Experimental", "Precise"],
+    accentHex: "#C7F36B",
+    description: "An engineer/product builder with personality.",
+    featured: "01",
+    hero: {
+      label: "PRODUCT ENGINEERING / UI/UX / BUILDING",
+      highlight: "feel even better",
+      emphasizeStyle: "accent",
+      visual: "diagram",
+      steps: ["Idea", "Product", "Engineering", "Experience", "Improvement"],
+      direction: "down",
+    },
+  },
+  vermilion: {
+    id: "vermilion",
+    name: "VERMILION",
+    label: "Vermilion",
+    tagline: "An engineer who understands creativity and people.",
+    personality: ["Bold", "Creative", "Confident", "Human", "Expressive", "Leadership-oriented"],
+    accentHex: "#FF6B4A",
+    description: "A creative technical leader.",
+    featured: "03",
+    hero: {
+      label: "PRODUCT · LEADERSHIP · CREATIVE",
+      highlight: "feel even better",
+      emphasizeStyle: "serif",
+      visual: "editorial",
+      steps: ["Build", "Lead", "Refine"],
+      direction: "down",
+    },
+  },
+  apricot: {
+    id: "apricot",
+    name: "APRICOT",
+    label: "Apricot",
+    tagline: "An engineer who cares about people as much as systems.",
+    personality: ["Warm", "Human", "Sophisticated", "Approachable", "Thoughtful", "Mature"],
+    accentHex: "#FFB86B",
+    description: "A thoughtful, human-centered product engineer.",
+    featured: "04",
+    hero: {
+      label: "PROBLEM → PRODUCT → PEOPLE",
+      highlight: "work well",
+      emphasizeStyle: "accent",
+      visual: "journey",
+      steps: ["Problem", "Product", "People", "Experience", "Better"],
+      direction: "across",
+      emphasize: ["People", "Experience"],
+    },
+  },
+};
+
 export const seo = {
   title: "Bibek Jaiswal — Laravel Developer & Product-minded Engineer",
   description:

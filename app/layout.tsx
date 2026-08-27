@@ -1,19 +1,35 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import {
+  Space_Grotesk,
+  Manrope,
+  DM_Sans,
+  Plus_Jakarta_Sans,
+  Sora,
+  Instrument_Serif,
+  JetBrains_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { seo, profile } from "@/lib/content";
+import { BrandProvider } from "@/components/BrandProvider";
+import BrandLab from "@/components/BrandLab";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
+const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space", display: "swap" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
+const dmsans = DM_Sans({ subsets: ["latin"], variable: "--font-dmsans", display: "swap" });
+const plus = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-plusjakarta", display: "swap" });
+const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
+const instrument = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: "--font-instrument", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
+const fontVars = [
+  space.variable,
+  manrope.variable,
+  dmsans.variable,
+  plus.variable,
+  sora.variable,
+  instrument.variable,
+  mono.variable,
+].join(" ");
 
 export const metadata: Metadata = {
   title: seo.title,
@@ -54,14 +70,13 @@ const websiteStructuredData = {
   url: seo.canonical,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const brandBoot = `(function(){try{var order=["signal","vermilion","apricot"];var fin=sessionStorage.getItem("brand-direction");var cur=sessionStorage.getItem("brand-lab-current");var b=fin||cur||"apricot";if(order.indexOf(b)===-1)b="apricot";document.documentElement.dataset.brand=b;}catch(e){document.documentElement.dataset.brand="apricot";}})();`;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={fontVars} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: brandBoot }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
@@ -71,7 +86,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <BrandProvider>
+          <BrandLab />
+          {children}
+        </BrandProvider>
+      </body>
     </html>
   );
 }
