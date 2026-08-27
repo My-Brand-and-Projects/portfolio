@@ -56,7 +56,7 @@ export const about = {
 export const experience = {
   company: "Codewing Solutions",
   role: "Laravel Developer",
-  note: "Bibek is currently working at Codewing Solutions. (Employment dates not listed.)",
+  note: "Bibek is currently working at Codewing Solutions.",
   description:
     "Working on real-world SaaS products across backend development, frontend development, integrations, payment systems, analytics, UI/UX and product improvements.",
 };
